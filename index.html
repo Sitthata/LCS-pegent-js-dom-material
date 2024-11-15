@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      .click-me-game {
+        text-align: center;
+        padding: 20px;
+      }
+
+      #btn-yes,
+      #btn-no {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+      }
+
+      #btn-yes {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      #btn-no {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+      <div>
+        <h1>Try to access me!</h1>
+        <ul>
+          <li class="list">Apple</li>
+          <li class="list">Banana</li>
+          <li class="list">Orange</li>
+          <ul>
+            <li>Try to access me!</li>
+          </ul>
+        </ul>
+      </div>
+      <div>
+        <h1>I'm your father <span class="child">I'm child</span></h1>
+      </div>
+      <div id="container">
+        <button class="btn">Button 1</button>
+        <button class="btn">Button 2</button>
+        <button class="btn">Button 3</button>
+      </div>
+    </div>
+    <div id="counter">
+      <h1>Counter</h1>
+      <button id="decrement">-</button>
+      <span id="count">0</span>
+      <button id="increment">+</button>
+    </div>
+    <div id="click-me-game">
+      <h1>Be my girlfriend!</h1>
+      <button id="btn-yes">YES</button>
+      <button id="btn-no">No.</button>
+      <p id="message"></p>
+    </div>
+    <div id="app">
+      <h1>Todo List</h1>
+
+      <form id="todoForm">
+        <input
+          type="text"
+          id="todoInput"
+          placeholder="Enter a new task"
+          required
+        />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <ul id="todoList">
+        <!-- Todo items will be added here dynamically -->
+      </ul>
+    </div>
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/todo.js"></script>
+    <script type="module" src="src/counter.js"></script>
+    <script type="module" src="src/click-game.js"></script>
+  </body>
+</html>
