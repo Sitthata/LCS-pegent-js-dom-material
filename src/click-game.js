@@ -15,11 +15,12 @@ function getRandomPosition() {
 function moveButton() {
   const pos = getRandomPosition();
   // Try to move the button to random position
-
-  // Hint: set style position to fixed and use top and left properties
+  btnNo.style.position = "fixed";
+  btnNo.style.top = `${pos.y}px`;
+  btnNo.style.left = `${pos.x}px`;
 }
 
-// btnNo.addEventListener("mouseover", moveButton);
+btnNo.addEventListener("mouseover", moveButton);
 // btnNo.addEventListener("click", moveButton);
 
 btnYes.addEventListener("click", () => {
