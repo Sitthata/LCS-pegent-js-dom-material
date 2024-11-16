@@ -15,9 +15,8 @@ function getRandomPosition() {
 function moveButton() {
   const pos = getRandomPosition();
   // Try to move the button to random position
-  btnNo.style.position = "fixed";
-  btnNo.style.top = `${pos.y}px`;
-  btnNo.style.left = `${pos.x}px`;
+
+  // Hint: You can use the style property to set the position of the button
 }
 
 btnNo.addEventListener("mouseover", moveButton);
