@@ -41,8 +41,14 @@ window.onload = function () {
   // Initialize data or perform setup tasks here
 };
 
+const data = document.getElementById("data");
+
 // Alternatively, using addEventListener for DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
+  const exampleData = {
+    name: "John Doe",
+    email: "john.doe@example.com",
+  };
   console.log("DOM fully loaded and parsed (DOMContentLoaded)");
-  // Additional initialization can go here
+  data.textContent = exampleData.name + " (" + exampleData.email + ")";
 });
