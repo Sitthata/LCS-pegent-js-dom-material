@@ -1,12 +1,17 @@
 const getElementDemo = () => {
   const root = document;
 
-  // try access the element
+  const example = root.getElementById("example")
+  const li = example.firstElementChild.lastElementChild.lastElementChild.firstElementChild
+  li.style.color = "red"
+  li.textContent = "Pegent"
+
 };
 
 const propertiesDemo = () => {
   // HTMLCollection vs NodeList
   const container = document.getElementById("container");
+
   const htmlCollection = container.getElementsByClassName("btn");
   const nodeList = container.querySelectorAll(".btn");
 
@@ -14,7 +19,6 @@ const propertiesDemo = () => {
   console.log("Before:", nodeList.length);
 
   const button = createButton();
-
   container.appendChild(button);
 
   console.log(htmlCollection);
@@ -25,6 +29,7 @@ const propertiesDemo = () => {
 };
 
 const createButton = () => {
+  /* <button class="btn">new button</button> */
   const newButton = document.createElement("button");
   newButton.textContent = "new button";
   newButton.className = "btn";
@@ -32,4 +37,4 @@ const createButton = () => {
 };
 
 // propertiesDemo();
-getElementDemo();
+// getElementDemo();

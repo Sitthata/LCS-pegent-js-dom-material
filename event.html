@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Events Demonstration</title>
+    <style>
+      /* Basic styling for clarity */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      #parent,
+      #child {
+        padding: 20px;
+        border: 2px solid #333;
+        margin-top: 10px;
+      }
+      #parent {
+        background-color: #f9f9f9;
+      }
+      #child {
+        background-color: #e9e9e9;
+      }
+      button {
+        padding: 10px 20px;
+        margin-top: 10px;
+      }
+      input {
+        padding: 5px;
+        margin-top: 10px;
+        width: 200px;
+      }
+    </style>
+    <script>
+      function handleInlineClick() {
+        alert("Button clicked! (Inline onclick)");
+      }
+
+      function handleInlineChange(input) {
+        alert("Input changed to: " + input.value + " (Inline onchange)");
+      }
+
+      function handleInlineMouseOver() {
+        console.log("Mouse over detected! (Inline onmouseover)");
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Section 1: DOM Events -->
+    <div class="section" id="dom-events-section">
+      <h2>1. DOM Events</h2>
+
+      <!-- 1.1 HTML Event Attributes -->
+      <h3>1.1 HTML Event Attributes</h3>
+      <button onclick="handleInlineClick()">Click Me (Inline)</button>
+      <br />
+      <input
+        type="text"
+        onchange="handleInlineChange(this)"
+        placeholder="Type and change focus"
+      />
+      <div
+        id="mouseoverDiv"
+        onmouseover="handleInlineMouseOver()"
+        style="margin-top: 10px; padding: 10px; border: 1px solid #000"
+      >
+        Hover over me (Inline)
+      </div>
+
+      <!-- 1.2 addEventListener -->
+      <h3>1.2 addEventListener</h3>
+      <button id="addListenerButton">Click Me (addEventListener)</button>
+      <br />
+      <input
+        type="text"
+        id="addListenerInput"
+        placeholder="Type and change focus"
+      />
+      <p id="log">message</p>
+      <div
+        id="addListenerDiv"
+        style="margin-top: 10px; padding: 10px; border: 1px solid #000"
+      >
+        Hover over me (addEventListener)
+      </div>
+    </div>
+
+    <!-- Section 2: Event Bubbling -->
+    <div class="section" id="event-bubbling-section">
+      <h2>2. Event Bubbling</h2>
+      <p>Click on the child div to see event bubbling in action.</p>
+      <div id="parent" onclick="parentClicked()">
+        Parent Div
+        <div id="child" onclick="childClicked(event)">Child Div</div>
+      </div>
+    </div>
+
+    <!-- Section 3: Window onload Event -->
+    <div class="section" id="window-load-section">
+      <h2>3. Window onload Event</h2>
+      <p>Check the console to see the onload event in action.</p>
+      <p id="data">Loading...</p>
+    </div>
+
+    <script src="src/event/main.js"></script>
+  </body>
+</html>

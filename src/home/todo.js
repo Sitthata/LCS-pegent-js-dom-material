@@ -13,18 +13,15 @@ const exampleTodos = [
 
 const API_URL = "http://localhost:3000";
 
-const handleResponse = async (response) => {
-  if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
-  }
-  return await response.json();
-};
+const handleResponse = async (response) => {};
 
 const fetchTodos = async () => {
-  const response = await fetch(`${API_URL}/todos`);
   try {
-    const todos = await handleResponse(response);
-    return todos;
+    const response = await fetch(`${API_URL}/todos`);
+    if (!response.ok) {
+      throw new Error("Todo not found");
+    }
+    return response.json();
   } catch (error) {
     console.error(error);
     return [];
@@ -32,20 +29,21 @@ const fetchTodos = async () => {
 };
 
 const createTodoLi = (todo) => {
-  const li = document.createElement("li");
-  li.textContent = todo.title;
+  // <li>{{ todo.title }}</li>
+  const newTodo = document.createElement("li");
+  newTodo.textContent = todo.title;
   if (todo.completed) {
-    li.classList.add("completed");
+    newTodo.classList.add("completed");
   }
-  return li;
+  return newTodo;
 };
 
 const renderTodo = async () => {
   const todos = await fetchTodos();
   const ul = document.getElementById("todo-list");
+
   todos.forEach((todo) => {
-    const li = createTodoLi(todo);
-    ul.appendChild(li);
+    ul.appendChild(createTodoLi(todo));
   });
 };
 

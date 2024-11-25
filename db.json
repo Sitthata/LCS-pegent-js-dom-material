@@ -15,5 +15,12 @@
             "title": "Learn Express",
             "completed": false
         }
+    ],
+    "user": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@doe"
+        }
     ]
 }
