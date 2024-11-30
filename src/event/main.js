@@ -2,11 +2,15 @@
 
 // 1.2 addEventListener Handlers
 // Button Click
-const addListenerButton = document.getElementById("addListenerButton");
-addListenerButton.addEventListener("click", function (event) {
-  //   alert("Button clicked! (addEventListener)");
-  console.log(event.target);
-});
+const button = document.getElementById("addListenerButton");
+
+button.onclick = () => {
+  console.log("PEGENT");
+}
+
+button.addEventListener("click", () => {
+  console.log("Button clicked! (addEventListener click)");
+})
 
 // Input Change
 const addListenerInput = document.getElementById("addListenerInput");
@@ -15,7 +19,6 @@ const log = document.getElementById("log");
 addListenerInput.addEventListener("change", function (event) {
   log.textContent =
     "Input changed to: " + event.target.value + " (addEventListener onchange)";
-  console.log(event.target);
 });
 
 // Mouseover
@@ -32,7 +35,7 @@ function parentClicked() {
 function childClicked(event) {
   console.log("Child div clicked! (Event Bubbling)");
   // Uncomment the next line to stop the event from bubbling up to the parent
-  // event.stopPropagation();
+  event.stopPropagation();
 }
 
 // 3. Window onload Event
@@ -44,11 +47,10 @@ window.onload = function () {
 const data = document.getElementById("data");
 
 // Alternatively, using addEventListener for DOMContentLoaded
-document.addEventListener("DOMContentLoaded", function () {
-  const exampleData = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-  };
+document.addEventListener("DOMContentLoaded", async function () {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+  const todo = await response.json()
+  console.log(todo)
   console.log("DOM fully loaded and parsed (DOMContentLoaded)");
-  data.textContent = exampleData.name + " (" + exampleData.email + ")";
+  data.textContent = todo.title;
 });
